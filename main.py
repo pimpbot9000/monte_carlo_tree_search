@@ -1,14 +1,15 @@
+from monte_carlo.board import Board
 from monte_carlo.game import Game
 import sys
 
+
 def main(argv):
     game = Game()
-    nof_sims = int(argv[1])
 
     if argv[0] == "ai":
-        game.play_ai_vs_ai(nof_sims=nof_sims)
+        game.play_ai_vs_ai()
     if argv[0] == "human":
-        game.play_human_vs_ai(1, nof_sims=nof_sims)
+        game.play_human_vs_ai()
 
 
 if __name__ == '__main__':

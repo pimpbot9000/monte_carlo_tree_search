@@ -1,6 +1,7 @@
 from monte_carlo.board import Board
 import numpy as np
 
+
 def test_no_winner():
     b1 = [
         [0, 0, 0, 0, 0, 0, 0],
@@ -116,7 +117,7 @@ def test_play_turn():
         [0, 1, 2, 1, 2, 1, 1]
     ]
 
-    board = Board(board=np.array(b), turn=2)
+    board = Board(board=b, turn=2)
     winner_before = Board.check_winner(board)
 
     assert winner_before == -1
