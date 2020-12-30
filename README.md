@@ -33,6 +33,8 @@ This said, in a game of MCTS vs. Minimax, MCTS wins virtually every time since M
 ## The Shortcomings of the MCTS
 There are some rare occasions when MCTS loses against Minimax: the MCTS does not guarantee it finds the best strategy. If the stars of pseudo random generators are aligned in some weird way MCTS might pick a "wrong" path which seemingly leads to victory and snowball-exploit it without exploring other possibilities properly, or some branch which seemingly leads to a loss is left unexplored. In the latter case opponent might be able to exploit this branch and find a path to Glorious Victory!!
 
+I deeply think that there's is a lesson here for us humans to learn.
+
 #### Fun fact
 
 As it happens, MCTS starts the game virtually every time by placing a piece in the middle column. This is considered to be a best strategy for the starting player according to human intuition, experience and mathemagicians. According to [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four#Mathematical_solution) it is *objectively* the best play: "*The solved conclusion for Connect Four is first player win. With perfect play, the first player can force a win \[...\] starting in the middle column.*". I take this as a proof that my MCTS implementation is doing something rite.
