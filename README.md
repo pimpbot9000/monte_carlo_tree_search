@@ -1,4 +1,4 @@
-# Connect four - The AI
+# Connect Four - The AI
 
 ## Motivation
 Last Christmas my sister's 9 yo daughter beat me in 4 in a Row game multiple times.
@@ -20,7 +20,7 @@ In essence taking the discounted value of win/loss score minimax is going to cho
 
 ## Monte Carlo Tree Search (MCTS)
 
-Nothing special here. A "vanilla MCTS" using something called "Upper Confidence Bound 1 applied to trees"(?). See [Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search#Exploration_and_exploitation) for details. The simulations are ran all the way down to terminal state (win/loss/draw) and the scores are back propagated all the way to the root ... taking into account the maximizing and minimizing player.
+Nothing special here. A "vanilla MCTS" using something called "Upper Confidence Bound 1 applied to trees"(?) for the exploration/exploitation balance. See [Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search#Exploration_and_exploitation) for details. The simulations are ran all the way down to terminal state (win/loss/draw) and the scores are back propagated all the way to the root ... taking into account the maximizing and minimizing player.
 
 ##  All non-terminal states are born equal
 
