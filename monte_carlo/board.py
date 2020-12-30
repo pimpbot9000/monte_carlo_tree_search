@@ -17,9 +17,14 @@ class Board:
         if board is None:
             self.board = np.full((6, 7), 0)
             self.turn = 1
-        else:
+        elif type(board) == np.ndarray:
             self.turn = turn
             self.board = board
+        elif type(board) == list:
+            self.turn = turn
+            self.board = np.array(board)
+        else:
+            raise Exception("Board is invalid type")
 
         self.previous_move = previous_move
         self.terminal = terminal
@@ -92,10 +97,6 @@ class Board:
 
         return 0
 
-    @staticmethod
-    def get_column(board, index):
-        return [board[i][index] for i in range(0, Board.rows)]
-
     def play_turn(self, move):
         """
         :param move: column index where the piece is "dropped"
@@ -104,12 +105,6 @@ class Board:
         if self.terminal:
             raise Exception("The game is in terminal state. Cannot continue.")
 
-        def new_player():
-            if self.turn == 1:
-                return 2
-            else:
-                return 1
-
         board = np.copy(self.board)
         col = np.flip(board[:, move]).tolist()
 
@@ -117,7 +112,9 @@ class Board:
 
         board[self.rows - 1 - index][move] = self.turn
 
-        board_obj = Board(board, turn=new_player(), previous_move=move)
+        new_player = 1 if self.turn == 2 else 2
+
+        board_obj = Board(board, turn=new_player, previous_move=move)
         winner = Board.check_winner(board_obj)
 
         if winner != -1:
@@ -154,6 +151,7 @@ class Board:
         print("winner", self.winner)
 
     def print_board(self):
+
         def print_horizontal_line():
             print((4*Board.cols + 1)*"-")
 
@@ -173,8 +171,6 @@ class Board:
         for i in range(0, Board.cols):
             row_str += " " + str(i) + "  "
         print(row_str)
-
-
 
     @staticmethod
     def simulate(board):
