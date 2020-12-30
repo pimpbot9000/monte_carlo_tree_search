@@ -34,7 +34,7 @@ There are rare occasions when MCTS loses: the MCTS does not guarantee it finds t
 
 #### Fun fact
 
-MCTS starts the game virtually every time by placing a piece in the middle column. This is considered to be a best strategy for the starting player according to human intuition and mathemagicians. According to [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four#Mathematical_solution) it is objectively the best play: "*The solved conclusion for Connect Four is first player win.*"
+MCTS starts the game virtually every time by placing a piece in the middle column. This is considered to be a best strategy for the starting player according to human intuition and mathemagicians. According to [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four#Mathematical_solution) it is objectively the best play: "*The solved conclusion for Connect Four is first player win. With perfect play, the first player can force a win \[...\] starting in the middle column.*"
 
 ## Running the application
 
