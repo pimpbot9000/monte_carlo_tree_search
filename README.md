@@ -26,7 +26,7 @@ If the game is not in terminal state (win/loss/draw) I did not implement any met
 
 ## The Downfall of Minimax
 
-With any timewise sensible search depth (~10) and without any way to evaluate non-terminal board positions/moves the Minimax has no way to know which is a *good* play in the beginning of the game. In essence Minimax only knows which plays are *bad* i.e which plays are going to lead to an inevitable loss in the next ~10 turns (assuming that the opponent is playing an optimal game). Sure the Minimax finds always a path to victory - if there is one - in the end game but it's a cold comfort if more aggressive opponent at least had some clue what is a good strategy in the very beginning.
+With any timewise sensible search depth (~10) and without evaluation of the non-terminal board positions/moves the Minimax has no way to know which is a *good* play in the beginning of the game. In essence Minimax only knows which plays are *bad* i.e which plays are going to lead to an inevitable loss in the next ~10 turns (assuming that the opponent is playing an optimal game). Sure the Minimax finds always a path to victory - if there is one - in the end game but it's a cold comfort if more aggressive opponent at least had some clue what is a good strategy in the very beginning.
 
 This said, in a game of MCTS vs. Minimax, MCTS wins virtually every time since MCTS is more aggressive - trying to win instead of just not trying to lose. The MCTS algorithm has some sense of a good strategy in the beginning of the game.
 
