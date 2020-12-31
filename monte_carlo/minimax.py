@@ -1,6 +1,4 @@
-
 import random
-import numpy as np
 import math
 from typing import List
 from monte_carlo.board import Board
@@ -95,7 +93,6 @@ class Minimax:
         else:
             boards = sorted(boards, key=cmp_to_key(Minimax.make_comparator(player)))
             return boards
-
 
     @staticmethod
     def make_comparator(player):

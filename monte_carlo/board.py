@@ -4,13 +4,14 @@ import numpy as np
 
 
 class Board:
+
     WIN = 4
     cols = 7
     rows = 6
 
     def __init__(self, board=None, turn=1, previous_move=-1, terminal=False, winner=-1):
         """
-        :param board:
+        :param board: Either a 2D array or Numpy 2D array. Regular 2D array is converted into Numpy array
         :param turn: Whose turn it's to play next (1 or 2)
         :param previous_move: Move that lead to this position (0-6).
         """
@@ -99,8 +100,8 @@ class Board:
 
     def play_turn(self, move):
         """
-        :param move: column index where the piece is "dropped"
-        :return: returns a new Board object
+        :param move: index of the column (0-6) where the piece is "dropped".
+        :return: a new Board object
         """
         if self.terminal:
             raise Exception("The game is in terminal state. Cannot continue.")
@@ -175,8 +176,9 @@ class Board:
     @staticmethod
     def simulate(board):
         """
-        :param board: Board
-        :return: 0 = draw, 1 = Player 1 wins, 2 = Player 2 wins
+        Simulates a random game starting fron the board position
+        :param board: Board, initial board position
+        :return: int, 0 = draw, 1 = Player 1 wins, 2 = Player 2 wins
         """
         winner = -1
 
@@ -185,8 +187,7 @@ class Board:
             move = random.choice(moves)
             board = board.play_turn(move)
             winner = Board.check_winner(board_obj=board)
-        #board.print_board_info()
-        #board.print_board()
+
         return winner
 
 

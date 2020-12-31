@@ -23,8 +23,9 @@ def test_sorting():
         DummyBoard("i", 2),
 
     ]
+
     m = Minimax()
-    # Note: moves are randomized when turns_played < 10
+
     boards = m.sort_boards(boards, player=1, turns_played=15, random_move=False)
     winners = [b.winner for b in boards]
     assert [1, 1, 1, 1, 2, 2, 2, 0, -1] == winners

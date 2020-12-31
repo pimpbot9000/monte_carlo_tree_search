@@ -40,9 +40,11 @@ def get_player(val: str):
     else:
         return None
 
+
 def print_help():
     print("To select players:")
     print("python main.py [human|mcts|minimax] [human|mcts|minimax]")
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])

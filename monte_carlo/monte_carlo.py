@@ -10,7 +10,6 @@ class MonteCarlo:
         self.N = 0
         self.C = c
         self.nof_sims = nof_sims
-        self.discount = 1
         self.verbose = verbose
 
     def search(self):
@@ -71,6 +70,13 @@ class MonteCarlo:
         return random.choice(choices)
 
     def uct(self, node: Node):
+        """
+        Upper Confidence bound for Trees 1
+        UCT1 score is used for selection heuristic to balance exploration/exploitation.
+        Node with the highest UCT1 score is the selected for the next child in tree traversal.
+
+        The greater the value of C (>= 0) the more emphasis there is for an exploration.
+        """
         if node.n == 0:
             return math.inf
         else:
@@ -84,15 +90,12 @@ class MonteCarlo:
         node.n += 1
 
         if winner == node.get_turn():
-            node.wins -= 1 * self.discount**node.depth
+            node.wins -= 1
         elif winner == 0:
-            node.wins += 0 * self.discount**node.depth
+            node.wins += 0
         else:
-            node.wins += 1 * self.discount**node.depth
+            node.wins += 1
         if node.parent is None:
             return
         else:
             self.back_propagate(node.parent, winner, turn)
-
-
-

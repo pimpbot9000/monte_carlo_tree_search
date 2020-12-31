@@ -1,8 +1,5 @@
 from monte_carlo.Player import PlayerMCTS, Player
 from monte_carlo.board import Board
-from monte_carlo.minimax import Minimax
-from monte_carlo.monte_carlo import MonteCarlo
-from monte_carlo.node import Node
 
 
 class Game:

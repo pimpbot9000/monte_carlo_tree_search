@@ -3,6 +3,9 @@ from monte_carlo.board import Board
 
 
 class Node:
+    """
+    Implementation of node for the Monte Carlo Tree Search
+    """
     def __init__(self, board: Board, parent=None, depth=0):
         self.depth = depth
         self.board: Board = board
@@ -24,7 +27,7 @@ class Node:
 
     def get_winner(self):
         if not self.is_terminal():
-            raise Exception("Node is not terminal node. There is no winner")
+            raise Exception("Node is not a terminal node. There is no winner.")
         return self.board.winner
 
     def get_turn(self):
@@ -41,5 +44,3 @@ class Node:
         return "visits: {visits}, wins: {wins}, depth: {depth}".format(visits=self.n,
                                                                        wins=self.wins,
                                                                        depth=self.depth)
-
-
