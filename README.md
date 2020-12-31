@@ -1,7 +1,7 @@
 # Connect Four - The "AI"
 
 ## Motivation
-Christmas of twenty-twenty my 9 yo niece beat me in *Connect Four* multiple times in a row (no pun intended). To find some spiritual redemption I explored (and exploited! Yes, pun intended) some tree search algorithms to beat the game (or at least to help me beat my niece ... I'm not a nice guy).
+Christmas of twenty-twenty my 9 yo niece beat me in **Connect Four** multiple times in a row (no pun intended). To find some spiritual redemption I explored (and exploited! Yes, pun intended) some tree search algorithms to beat the game (or at least to help me beat my niece ... I'm not a nice guy).
 
 ![](https://upload.wikimedia.org/wikipedia/en/7/79/Connect_4_Board_and_Box.jpg)
 
@@ -10,11 +10,11 @@ Initially I implemented game tree search based on the *minimax algorithm*. It tu
 (According to [Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search)  there are 4,531,985,219,092 board positions).
 
 ### Not all wins or losses are born equal
-I noticed that with minimax if all wins are of value 1 and losses of value -1 no matter the depth, when the minimax notices that it's going to lose eventually no matter what, it did not care anymore which losing move to play (i.e. it could play a move the caused it to lose immediately next turn instead of playing a move that would have lead to defeat in say, 6 moves). Same happened when minimax saw multiple paths to a definite victory. It did not care at all to let the opponent out of it's misery as soon as possible. It's quite fun experience to realise that the algorithm you just implemented turns out to be a ... dick.
+I noticed that with minimax if all wins are of value 1 and losses of value -1, when the minimax notices that it's going to lose eventually no matter what, it did not care anymore which losing move to play (i.e. it could play a move the caused it to lose immediately next turn instead of playing a move that would have lead to defeat in say, 6 moves). Same happened when minimax saw multiple paths to a definite victory. It did not care at all to let the opponent out of it's misery as soon as possible. It's quite fun experience to realise that the algorithm you just implemented turns out to be a ... dick.
 
 That's quite poor sportsmanship so losses/wins are discounted taking into account the depth.
 
-In essence taking the discounted value of win/loss score minimax is going to choose the shortest path to victory (instead of screwing around with it's opponent) and the longest path to loss ... which is a good strategy since you never know if the opponent is going to make a mistake. It ain't over 'till the fa ... ahem, the curvy lady sings!
+In essence taking the discounted value of win/loss score minimax and back propagating that value, it's going to choose the shortest path to victory (instead of screwing around with it's opponent) and the longest path to loss ... latter being a good strategy since you never know if the opponent is going to make a mistake. It ain't over 'till the fa ... ahem, the curvy lady sings!
 
 ## Monte Carlo Tree Search (MCTS)
 
@@ -26,7 +26,7 @@ If the game is not in terminal state (win/loss/draw) I did not implement any met
 
 ## The Downfall of Minimax
 
-With any timewise sensible search depth (~10) and without evaluation of the non-terminal board positions/moves the Minimax has no way to know which is a *good* play in the beginning of the game. In essence Minimax only knows which plays are *bad* i.e which plays are going to lead to an inevitable loss in the next ~10 turns (assuming that the opponent is playing an optimal game). Sure the Minimax finds always a path to victory - if there is one - in the end game but it's a cold comfort if more aggressive opponent at least had some clue what is a good strategy in the very beginning.
+With any timewise sensible search depth (~10) and without any evaluation of the non-terminal board positions/moves the Minimax has no way to know which is a **good** play in the beginning of the game. In essence Minimax only knows which plays are **bad** i.e which plays are going to lead to an inevitable loss in the next ~10 turns (assuming that the opponent is playing so called **perfect** game). Sure the Minimax finds always a path to victory - if there is one - in the end game, but it's a cold comfort if more aggressive opponent at least had some clue what is a good strategy in the very beginning.
 
 This said, in a game of MCTS vs. Minimax, MCTS wins virtually every time since MCTS is more aggressive - trying to win instead of just not trying to lose. The MCTS algorithm has some sense of a good strategy in the beginning of the game.
 
