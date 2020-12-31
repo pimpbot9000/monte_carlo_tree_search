@@ -16,7 +16,7 @@ class Board:
         """
         if board is None:
             self.board = np.full((6, 7), 0)
-            self.turn = 1
+            self.turn = turn
         elif type(board) == np.ndarray:
             self.turn = turn
             self.board = board

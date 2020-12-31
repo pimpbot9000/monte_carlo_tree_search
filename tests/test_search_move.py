@@ -1,13 +1,14 @@
 from monte_carlo.board import Board
 from monte_carlo.minimax import Minimax
 from monte_carlo.node import Node
-from monte_carlo.tree_search import MonteCarlo
+from monte_carlo.monte_carlo import MonteCarlo
 import numpy as np
 
 """
 Note: If the planets are aligned on some funny way there exists a rare chance that the Monte Carlo Tree Search
       won't find the obviously right move.    
 """
+
 
 def test_correct_move_to_win():
     board = [

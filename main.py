@@ -7,7 +7,7 @@ def main(argv):
     game = Game()
 
     if argv[0] == "ai":
-        game.play_ai_vs_ai()
+        game.play_ai_vs_ai(starting_player=1)
     if argv[0] == "human":
         game.play_human_vs_ai()
 

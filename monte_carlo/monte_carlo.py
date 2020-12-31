@@ -5,12 +5,13 @@ import random
 
 
 class MonteCarlo:
-    def __init__(self, root: Node, nof_sims=1000, c=math.sqrt(2),):
+    def __init__(self, root: Node, nof_sims=1000, c=math.sqrt(2), verbose=True):
         self.root = root
         self.N = 0
         self.C = c
         self.nof_sims = nof_sims
         self.discount = 1
+        self.verbose = verbose
 
     def search(self):
         for _ in range(0, self.nof_sims):
@@ -24,12 +25,21 @@ class MonteCarlo:
 
             self.back_propagate(node, winner, turn=self.root.get_turn())
 
+        return self.get_best_move()
+
+    def get_best_move(self):
         moves = list(map(lambda child: child.get_previous_move(), self.root.children))
         visits = list(map(lambda child: child.n, self.root.children))
         max_visits = max(visits)
         index = visits.index(max_visits)
+        best_child = self.root.children[index]
+        best_move = moves[index]
 
-        return moves[index]
+        if self.verbose:
+            print("Win probability:", best_child.wins / best_child.n)
+            print("Move:", best_move)
+
+        return best_move
 
     def select_and_expand(self):
         def _select(node: Node):
