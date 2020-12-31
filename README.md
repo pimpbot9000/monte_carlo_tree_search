@@ -41,15 +41,14 @@ As it happens, MCTS starts the game virtually every time by placing a piece in t
 
 ## Running the application
 
-Playing human vs. AI (MCTS):
+There is a simple text based UI. One can select players via command line arguments.
+
 ```
-python main.py human
+python main.py [human|mcts|minimax] [human|mcts|minimax]
 ```
 
-The ultimate duel: AI vs. AI (MCTS vs. Minimax):
-```
-python main.py ai
-```
-I was planning to add command line arguments to set the search depth (Minimax) and number of simulations (MCTS) but I was too lazy.
+For example **human** vs. **monte carlo tree search** (human starts the game):
 
-Oh, there's a text based UI. Have fun.
+```
+python main.py human mcts
+```
