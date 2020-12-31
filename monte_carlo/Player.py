@@ -4,7 +4,7 @@ from monte_carlo.board import Board
 from monte_carlo.minimax import Minimax
 from monte_carlo.monte_carlo import MonteCarlo
 from monte_carlo.node import Node
-
+import random
 
 class Player(ABC):
     """
@@ -69,3 +69,13 @@ class PlayerMinimax(Player):
     def get_move(self, board: Board) -> int:
         minimax = Minimax(max_depth=self.search_depth)
         return minimax.search(board)
+
+
+class Harri(Player):
+    def __init__(self):
+        pass
+
+    def get_move(self, board) -> int:
+        possible_moves = board.possible_moves()
+        return random.choice(possible_moves)
+
