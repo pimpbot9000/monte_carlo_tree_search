@@ -14,6 +14,8 @@ class MonteCarlo:
         self.verbose = verbose
 
     def search(self):
+        if self.verbose:
+            print("Monte Carlo Tree Search... Searching")
         for _ in range(0, self.nof_sims):
             self.N += 1
             node = self.select_and_expand()
@@ -36,7 +38,7 @@ class MonteCarlo:
         best_move = moves[index]
 
         if self.verbose:
-            print("Win probability:", best_child.wins / best_child.n)
+            print("Win probability:", ((best_child.wins / best_child.n) + 1)/2)
             print("Move:", best_move)
 
         return best_move

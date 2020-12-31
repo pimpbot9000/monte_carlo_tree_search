@@ -95,5 +95,5 @@ def search_move_mc(raw_board, turn):
 def search_move_minimax(raw_board, turn):
     board = Board(board=np.array(raw_board), turn=turn)
     mm = Minimax(8)
-    move = mm.search(board, turn)
+    move = mm.search(board)
     return move

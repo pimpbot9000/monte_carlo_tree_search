@@ -9,10 +9,11 @@ from copy import copy
 
 
 class Minimax:
-    def __init__(self, max_depth=10):
+    def __init__(self, max_depth=10, verbose=True):
         self.MAX_DEPTH = max_depth
         self.random_move = True
-        self.discount = 0.95
+        self.discount = 0.95  # This is an arbitrary number that satisfy cond. 0 < discount < 1
+        self.verbose = verbose
 
     def minimax(self, board: Board, alpha, beta, is_maximizing_player, player, depth):
 
@@ -74,9 +75,15 @@ class Minimax:
 
             return min_eval, optimal_move
 
-    def search(self, board: Board, player):
-        value, move = self.minimax(board, -1, 1, True, player, 0)
-        print("value:", value, "move", move)
+    def search(self, board: Board):
+        if self.verbose:
+            print("Minimax searching...")
+
+        value, move = self.minimax(board, -1, 1, True, board.turn, 0)
+
+        if self.verbose:
+            print("value:", value, ", Move:", move)
+
         return move
 
     @staticmethod
