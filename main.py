@@ -1,10 +1,11 @@
-from monte_carlo.Player import PlayerMCTS, PlayerHuman, Player, PlayerMinimax
+from monte_carlo.Player import PlayerMCTS, PlayerHuman, Player, PlayerMinimax, PlayerHarri
 from monte_carlo.board import Board
 from monte_carlo.game import Game
 import sys
 
 
 def main(argv):
+
     p1 = None
     p2 = None
 
@@ -37,6 +38,8 @@ def get_player(val: str):
         return PlayerMCTS()
     elif val == "minimax":
         return PlayerMinimax()
+    elif val == "harri":
+        return PlayerHarri()
     else:
         return None
 

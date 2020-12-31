@@ -71,11 +71,14 @@ class PlayerMinimax(Player):
         return minimax.search(board)
 
 
-class Harri(Player):
+class PlayerHarri(Player):
     def __init__(self):
         pass
 
-    def get_move(self, board) -> int:
+    def get_move(self, board: Board) -> int:
+        print("Harri is thinking very hard!")
         possible_moves = board.possible_moves()
-        return random.choice(possible_moves)
+        move = random.choice(possible_moves)
+        print("Move:", move)
+        return move
 
