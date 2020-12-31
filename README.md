@@ -10,7 +10,7 @@ Initially I implemented game tree search based on the *minimax algorithm*. It tu
 (According to [Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search)  there are 4,531,985,219,092 board positions).
 
 ### Not all wins or losses are born equal
-I noticed that with minimax if all wins are of value 1 and losses of value -1 no matter the depth, when the minimax notices that it's going to lose eventually no matter what, it did not care anymore which losing move to play (i.e. it could play a move the caused it to lose immediately next turn instead of playing a move that would have lead to defeat in say, 6 moves). Same happened when minimax saw multiple paths to a definite victory. It did not care at all to let the opponent out of it's misery as soon as possible. It's quite fun experience to realise that the algorithm you just implemented turns out to be a ... dick.
+I noticed that with minimax if all wins are of value 1 and losses of value -1, when the minimax notices that it's going to lose eventually no matter what, it did not care anymore which losing move to play (i.e. it could play a move the caused it to lose immediately next turn instead of playing a move that would have lead to defeat in say, 6 moves). Same happened when minimax saw multiple paths to a definite victory. It did not care at all to let the opponent out of it's misery as soon as possible. It's quite fun experience to realise that the algorithm you just implemented turns out to be a ... dick.
 
 That's quite poor sportsmanship so losses/wins are discounted taking into account the depth.
 
