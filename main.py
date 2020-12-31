@@ -46,7 +46,7 @@ def get_player(val: str):
 
 def print_help():
     print("To select players:")
-    print("python main.py [human|mcts|minimax] [human|mcts|minimax]")
+    print("python main.py [human|mcts|minimax|harri] [human|mcts|minimax|harri]")
 
 
 if __name__ == '__main__':
