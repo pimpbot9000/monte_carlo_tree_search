@@ -33,7 +33,7 @@ This said, in a game of MCTS vs. Minimax, MCTS wins virtually every time since M
 ## The Shortcomings of the MCTS
 There are some rare occasions when MCTS loses against Minimax: the MCTS does not guarantee it finds the best strategy. If the stars of pseudo random generators are aligned in some weird way MCTS might pick a "wrong" path which seemingly leads to victory and snowball-exploit it without exploring other possibilities properly, or some branch which seemingly leads to a loss is left unexplored. In the latter case opponent might be able to exploit this branch and find a path to Glorious Victory!!
 
-I deeply think that there's is a lesson here for us humans to learn.
+I think there's a lesson here for us humans to learn.
 
 #### Fun fact
 

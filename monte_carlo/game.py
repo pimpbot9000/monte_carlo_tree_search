@@ -15,7 +15,7 @@ class Game:
         while not self.board.terminal:
             print("Turn:", self.board.turn)
             player = self.get_player()
-            move = player.play_turn(self.board)
+            move = player.get_move(self.board)
             self.board = self.board.play_turn(move)
             self.board.print_board()
 

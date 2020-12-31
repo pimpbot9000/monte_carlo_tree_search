@@ -12,7 +12,7 @@ class Player(ABC):
     """
 
     @abstractmethod
-    def play_turn(self, board: Board) -> int:
+    def get_move(self, board: Board) -> int:
         """
         Abstract method that returns a move
         :param board: Board
@@ -27,14 +27,14 @@ class PlayerMCTS(Player):
         self.nof_sims = nof_sims
         self.c = c
 
-    def play_turn(self, board: Board) -> int:
+    def get_move(self, board: Board) -> int:
         mc = MonteCarlo(root=Node(board), nof_sims=self.nof_sims, c=self.c)
         move = mc.search()
         return move
 
 
 class PlayerHuman(Player):
-    def play_turn(self, board: Board) -> int:
+    def get_move(self, board: Board) -> int:
         possible_moves = board.possible_moves()
         print("possible moves", possible_moves)
 
@@ -66,6 +66,6 @@ class PlayerMinimax(Player):
     def __init__(self, search_depth=8):
         self.search_depth = search_depth
 
-    def play_turn(self, board: Board) -> int:
+    def get_move(self, board: Board) -> int:
         minimax = Minimax(max_depth=self.search_depth)
         return minimax.search(board)
