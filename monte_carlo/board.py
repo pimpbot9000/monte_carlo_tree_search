@@ -77,7 +77,7 @@ class Board:
 
     @staticmethod
     def check_sequence(seq, terminate_on_zero=False):
-        seq = seq.tolist() # for faster iteration
+        seq = seq.tolist()  # for faster iteration
         current = None
         counter = 0
 
@@ -176,7 +176,7 @@ class Board:
     @staticmethod
     def simulate(board):
         """
-        Simulates a random game starting fron the board position
+        Simulates a random game starting from the board position
         :param board: Board, initial board position
         :return: int, 0 = draw, 1 = Player 1 wins, 2 = Player 2 wins
         """
@@ -189,6 +189,21 @@ class Board:
             winner = Board.check_winner(board_obj=board)
 
         return winner
+
+    def __str__(self):
+        board_str = ""
+        rows = len(self.board)
+
+        for r in range(0, rows):
+            row = self.board[r, :]
+            for item in row:
+                board_str += str(item)
+
+        return board_str + str(self.turn)
+
+
+
+
 
 
 

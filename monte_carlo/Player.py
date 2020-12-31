@@ -72,13 +72,22 @@ class PlayerMinimax(Player):
 
 
 class PlayerHarri(Player):
-    def __init__(self):
-        pass
+
+    def __init__(self, url):
+        self.url = url
 
     def get_move(self, board: Board) -> int:
         print("Harri is thinking very hard!")
-        possible_moves = board.possible_moves()
-        move = random.choice(possible_moves)
-        print("Move:", move)
-        return move
+
+        import requests
+
+        raw_str = board.__str__()
+
+        payload = {"data": raw_str}
+
+        r = requests.get(self.url, params=payload)
+
+        print(r.json())
+
+        return 0   # TODO: get move from request!
 
