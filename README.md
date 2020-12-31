@@ -1,16 +1,16 @@
 # Connect Four - The "AI"
 
 ## Motivation
-Christmas of twenty-twenty my 9 yo niece beat me in *Connect Four* multiple times in a row (no pun intended). To find some spiritual redemption I explored (and exploited! Yes, pun intended) some tree search algorithms to beat the game (or at least to help me beat my niece ... I'm not a nice guy).
+Christmas of twenty-twenty my 9 yo niece beat me in **Connect Four** multiple times in a row (no pun intended). To find some spiritual redemption I explored (and exploited! Yes, pun intended) some tree search algorithms to beat the game (or at least to help me beat my niece ... I'm not a nice guy).
 
 ![](https://upload.wikimedia.org/wikipedia/en/7/79/Connect_4_Board_and_Box.jpg)
 
 ## Minimax
-Initially I implemented game tree search based on the *minimax algorithm*. It turned out that minimax - being essentially a brute force method - was very slow... even with alpha-beta pruning. Who could have guessed!
+Initially I implemented game tree search based on the **minimax algorithm**. It turned out that minimax - being essentially a brute force method - was very slow... even with alpha-beta pruning. Who could have guessed!
 (According to [Wikipedia](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search)  there are 4,531,985,219,092 board positions).
 
 ### Not all wins or losses are born equal
-I noticed that with minimax if all wins are of value 1 and losses of value -1 no matter the depth, when the minimax notices that it's going to lose eventually no matter what, it did not care anymore which losing move to play (i.e. it could play a move the caused it to lose immediately next turn instead of playing a move that would have lead to defeat in say, 6 moves). Same happened when minimax saw multiple paths to a definite victory. It did not care at all to let the opponent out of it's misery as soon as possible. It's quite fun experience to realise that the algorithm you just implemented turns out to be a ... dick.
+I noticed that with minimax if all wins are of value 1 and losses of value -1 no matter the depth, when the minimax sees that it's going to lose eventually, it did not care anymore which losing move to play (i.e. it could play a move the caused it to lose immediately next turn instead of playing a move that would have lead to defeat in say, 6 moves). Same happened when minimax saw multiple paths to a definite victory. It did not care at all to let the opponent out of it's misery as soon as possible. It's quite fun experience to realise that the algorithm you just implemented turns out to be a ... dick.
 
 That's quite poor sportsmanship so losses/wins are discounted taking into account the depth.
 
@@ -37,7 +37,7 @@ I think there's a lesson here for us humans to learn.
 
 #### Fun fact
 
-As it happens, MCTS starts the game virtually every time by placing a piece in the middle column. This is considered to be a best strategy for the starting player according to human intuition, experience and mathemagicians. According to [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four#Mathematical_solution) it is *objectively* the best play: "*The solved conclusion for Connect Four is first player win. With perfect play, the first player can force a win \[...\] starting in the middle column.*". I take this as a proof that my MCTS implementation is doing something rite.
+As it happens, MCTS starts the game virtually every time by placing a piece in the middle column. This is considered to be the best opening move according to human intuition, experience and mathemagicians. According to [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four#Mathematical_solution) it is *objectively* the best play: "*The solved conclusion for Connect Four is first player win. With perfect play, the first player can force a win \[...\] starting in the middle column.*". I take this as a proof that my MCTS implementation is doing something rite.
 
 ## Running the application
 
