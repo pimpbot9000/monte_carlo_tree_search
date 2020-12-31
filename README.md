@@ -14,7 +14,7 @@ I noticed that with minimax if all wins are of value 1 and losses of value -1, w
 
 That's quite poor sportsmanship so losses/wins are discounted taking into account the depth.
 
-In essence taking the discounted value of win/loss score minimax is going to choose the shortest path to victory (instead of screwing around with it's opponent) and the longest path to loss ... latter being a good strategy since you never know if the opponent is going to make a mistake. It ain't over 'till the fa ... ahem, the curvy lady sings!
+In essence taking the discounted value of win/loss score minimax and back propagating that value, it's going to choose the shortest path to victory (instead of screwing around with it's opponent) and the longest path to loss ... latter being a good strategy since you never know if the opponent is going to make a mistake. It ain't over 'till the fa ... ahem, the curvy lady sings!
 
 ## Monte Carlo Tree Search (MCTS)
 
